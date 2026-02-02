@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Innovations - Kiddo Stories | AI Bedtime Stories for Kids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .breadcrumb {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .breadcrumb a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        header .company {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: -1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .how-it-works {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+
+        .how-it-works ol {
+            margin-left: 1.5rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .how-it-works li {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .contact-box a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.9;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">← igordevivanov.com</a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+
+        <header>
+            <p class="company">Digital Innovations</p>
+            <h1>Kiddo Stories</h1>
+            <p>AI-powered personalized bedtime stories for children, delivered via Facebook Messenger</p>
+            <a href="pricing.html" class="cta-button">View Pricing</a>
+        </header>
+
+        <div class="main-content">
+            <section class="section">
+                <h2>What is Kiddo Stories?</h2>
+                <p>
+                    Kiddo Stories is a subscription-based service by <strong>Digital Innovations</strong> that creates personalized bedtime stories for your children.
+                    Each story is unique, featuring your child's name, favorite characters, and themes. Stories are delivered
+                    through Facebook Messenger and include AI-generated narration and custom illustrations.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Features</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Personalized Stories</h3>
+                        <p>AI-generated stories with your child's name and preferences</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Audio Narration</h3>
+                        <p>Text-to-speech audio for a true bedtime experience</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Custom Illustrations</h3>
+                        <p>Unique images for each story</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Facebook Messenger</h3>
+                        <p>Delivered directly to your Messenger inbox</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>How It Works</h2>
+                <div class="how-it-works">
+                    <ol>
+                        <li>Subscribe to a plan (Starter, Popular, or Premium)</li>
+                        <li>Connect your Facebook Messenger account</li>
+                        <li>Set your child's preferences (age, themes, character names)</li>
+                        <li>Receive personalized bedtime stories on demand</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="section contact-box">
+                <h2>Contact & Support</h2>
+                <p>Questions? We're here to help.</p>
+                <p>
+                    <a href="mailto:hello@igordevivanov.com">hello@igordevivanov.com</a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">You can also reach us through Facebook Messenger.</p>
+            </section>
+        </div>
+
+        <footer>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:hello@igordevivanov.com">Contact</a>
+            <p>© 2026 Digital Innovations. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Kiddo Stories | Digital Innovations</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb {
+            margin-bottom: 0.5rem;
+        }
+        .breadcrumb a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        .pricing-card.featured .price { color: white; }
+        .pricing-card.featured .price-amount { color: white; }
+        .pricing-card.featured h3 { color: white; }
+        .pricing-card.featured p { color: rgba(255, 255, 255, 0.9); }
+        .pricing-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #333;
+        }
+        .stories-count {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .pricing-card.featured .stories-count { color: rgba(255, 255, 255, 0.9); }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .features li {
+            padding: 0.75rem 0;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .features li:last-child { border-bottom: none; }
+        .pricing-card.featured .features li {
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        .features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .pricing-card.featured .features li:before { color: white; }
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        .cta-button:hover { background: #5568d3; }
+        .pricing-card.featured .cta-button {
+            background: white;
+            color: #667eea;
+        }
+        .pricing-card.featured .cta-button:hover { background: #f0f0f0; }
+        .info-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        .info-section h2 { color: #667eea; margin-bottom: 1rem; }
+        .info-section p { color: #666; margin-bottom: 1rem; }
+        @media (max-width: 768px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb"><a href="../index.html">← igordevivanov.com</a></div>
+        <a href="index.html" class="back-link">← Home</a> | <a href="terms.html" class="back-link">Terms</a> | <a href="privacy.html" class="back-link">Privacy</a>
+        <h1>Pricing</h1>
+        <p class="subtitle">Choose the perfect plan for your child's storytelling journey</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price"><span class="price-amount">$5.99</span></div>
+                <p class="stories-count">10 Stories</p>
+                <ul class="features">
+                    <li>AI-generated personalized stories</li>
+                    <li>Text-to-speech audio narration</li>
+                    <li>Custom illustrations</li>
+                    <li>Multiple themes available</li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <h3>Popular</h3>
+                <div class="price"><span class="price-amount">$9.99</span></div>
+                <p class="stories-count">20 Stories</p>
+                <ul class="features">
+                    <li>AI-generated personalized stories</li>
+                    <li>Text-to-speech audio narration</li>
+                    <li>Custom illustrations</li>
+                    <li>Multiple themes available</li>
+                    <li>Best value per story</li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price"><span class="price-amount">$19.99</span></div>
+                <p class="stories-count">50 Stories</p>
+                <ul class="features">
+                    <li>AI-generated personalized stories</li>
+                    <li>Text-to-speech audio narration</li>
+                    <li>Custom illustrations</li>
+                    <li>Multiple themes available</li>
+                    <li>Maximum savings</li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>How It Works</h2>
+            <p>Kiddo Stories uses a credit-based system. Each story you generate uses one credit from your purchased package. Credits never expire, so you can use them at your own pace.</p>
+            <p>To get started, simply visit our Facebook Messenger bot and begin your storytelling journey!</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Payment & Refunds</h2>
+            <p>All payments are processed securely through Paddle. We offer a 14-day money-back guarantee if you're not satisfied with our service. For more details, please see our <a href="terms.html">Terms of Service</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

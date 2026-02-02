@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Ivanov - Full Stack Developer</title>
+    <title>Igor Ivanov - Front End Engineer</title>
     <style>
         * {
             margin: 0;
@@ -90,19 +90,37 @@
 
         .project-card h3 {
             color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .project-card .company {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 0.75rem;
         }
 
         .project-card p {
             color: #666;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .project-card a {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 1rem;
         }
 
@@ -113,6 +131,40 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
+        }
+
+        .languages {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .languages span {
+            background: #e8eaf6;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item h3 {
+            color: #667eea;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item p {
+            margin-bottom: 0.75rem;
         }
 
         .contact {
@@ -131,6 +183,10 @@
 
         .contact a:hover {
             text-decoration: underline;
+        }
+
+        .contact .phone {
+            margin-top: 0.5rem;
         }
 
         footer {
@@ -175,66 +231,124 @@
     <div class="container">
         <header>
             <h1>Igor Ivanov</h1>
-            <p>Full Stack Developer</p>
+            <p>Front End Engineer</p>
         </header>
 
         <div class="main-content">
             <section class="section">
                 <h2>About Me</h2>
                 <p>
-                    I'm a passionate full stack developer with expertise in building modern web applications 
-                    and AI-powered solutions. I love creating innovative products that solve real-world problems 
-                    and bring value to users.
-                </p>
-                <p>
-                    Currently focused on developing AI-powered applications and exploring the intersection 
-                    of technology and creativity.
+                    In my four years of work experience as a front-end developer, I have always tried to improve my work and my skills and get even more experience. I enjoy my work and take responsibility for every project, paying a lot of attention to detail.
                 </p>
             </section>
 
             <section class="section">
                 <h2>Skills</h2>
                 <div class="skills">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">Electron.js</span>
                     <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Express</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Prisma</span>
-                    <span class="skill-tag">OpenAI API</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Redux</span>
+                    <span class="skill-tag">GraphQL</span>
+                    <span class="skill-tag">Material UI</span>
+                    <span class="skill-tag">Styled Components</span>
+                    <span class="skill-tag">Emotion</span>
+                    <span class="skill-tag">Tailwind</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">HTML/CSS/JavaScript</span>
+                </div>
+                <p style="margin-top: 1.5rem; margin-bottom: 0.5rem;"><strong>Languages:</strong></p>
+                <div class="languages">
+                    <span>English</span>
+                    <span>German</span>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Projects</h2>
-                <div class="projects">
-                    <div class="project-card">
-                        <h3>Kiddo Stories</h3>
-                        <p>
-                            AI-powered personalized bedtime stories for children delivered via Facebook Messenger. 
-                            Features AI-generated stories, text-to-speech audio, and custom illustrations.
-                        </p>
-                        <p><strong>Tech Stack:</strong> Node.js, TypeScript, OpenAI API, Prisma, MySQL, Messenger API</p>
+                <h2>Work Experience</h2>
+
+                <div class="experience-item">
+                    <h3>Front End Developer</h3>
+                    <p class="meta">qSense, Belgrade · 2022 – December 2023</p>
+                    <div class="projects">
+                        <div class="project-card">
+                            <h3>Move the Chain</h3>
+                            <p>Worked as part of the Belgrade team, which collaborated with an international team from Argentina. Implemented new features and resolved challenging bugs.</p>
+                            <p><strong>Tech:</strong> Next.js, Node.js, Prisma, Tailwind, React-query</p>
+                            <a href="https://movethechain.com/" target="_blank" rel="noopener">movethechain.com →</a>
+                        </div>
+                        <div class="project-card">
+                            <h3>CustShow</h3>
+                            <p>Desktop application for Deaf Hospital. Rebuilt the application with a new design and implemented new features. Upgraded all deprecated libraries.</p>
+                            <p><strong>Tech:</strong> Electron, React, Redux, MUI</p>
+                        </div>
+                        <div class="project-card">
+                            <h3>Ovintiv Workflow Logistics</h3>
+                            <p>Financial calculations project, mostly based on tables made with Ag-grid. Implemented all functionality and designs connected with the Ag-grid library.</p>
+                            <p><strong>Tech:</strong> React, Tailwind, React-hook-form, React-query, Ag-grid</p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="experience-item">
+                    <h3>Front End Developer</h3>
+                    <p class="meta">Techvenia, Antwerpen · 2019 – 2022</p>
+                    <div class="projects">
+                        <div class="project-card">
+                            <h3>Mubazar, Scivenia</h3>
+                            <p>Maintained the legacy Mubazar and Scivenia platforms, implemented new designs and features. Rebuilt Mubazar using React, Next.js and GraphQL. Built Scivenia platform from scratch with Next.js and GraphQL.</p>
+                            <p>Collaborated with product owner. Built a drag-and-drop form builder (similar to Google Forms) that supports 10 languages. Used Atomic Design Methodology.</p>
+                            <p><strong>Tech:</strong> React, Next.js, GraphQL</p>
+                            <a href="https://mubazar.com/en" target="_blank" rel="noopener">mubazar.com →</a>
+                            <a href="https://www.scivenia.com/en" target="_blank" rel="noopener" style="margin-left: 1rem;">scivenia.com →</a>
+                        </div>
+                        <div class="project-card">
+                            <h3>ABF (Vicre)</h3>
+                            <p>Project management tool for Vicre, an internationally operating Belgian company that accompanies enterprises during business transformations.</p>
+                            <p>Implemented new features and design on the desktop version with Next.js and Redux. Built the mobile app from scratch in React Native.</p>
+                            <p><strong>Tech:</strong> Next.js, Redux, React Native</p>
+                            <a href="http://abf.vicre.be/login" target="_blank" rel="noopener">abf.vicre.be →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Internship · Junior Front End Developer</h3>
+                    <p class="meta">Fuelup – education, June 2018 – December 2018</p>
+                    <p>Free learning platform. Technologies used: React, Sass, Redux.</p>
+                    <a href="http://www.fundly.com/fuel-up-education" target="_blank" rel="noopener">fundly.com/fuel-up-education →</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+                <p><strong>Front-end Developer</strong> · Brainster · 2018 – 2019</p>
+            </section>
+
+            <section class="section">
+                <h2>Digital Innovations</h2>
+                <p>Cofounder of <strong>Digital Innovations</strong>, a company focused on creating innovative digital products.</p>
+                <p>Our flagship product, <strong>Kiddo Stories</strong>, delivers AI-powered personalized bedtime stories for children via Facebook Messenger — with AI-generated stories, text-to-speech audio, and custom illustrations.</p>
+                <p><a href="digital-inovations/" style="color: #667eea; font-weight: 600; text-decoration: none;">→ Visit Digital Innovations</a></p>
             </section>
 
             <section class="section contact">
                 <h2>Get In Touch</h2>
                 <p>Feel free to reach out if you'd like to collaborate or have any questions!</p>
                 <p>
-                    <a href="mailto:hello@igordevivanov.com">hello@igordevivanov.com</a>
+                    <a href="mailto:igor.dev.ivanov@gmail.com">igor.dev.ivanov@gmail.com</a>
+                </p>
+                <p class="phone">
+                    <a href="tel:+38978472490">+389 78 472 490</a>
                 </p>
             </section>
         </div>
 
         <footer>
-            <a href="/terms.html">Terms of Service</a>
-            <a href="/privacy.html">Privacy Policy</a>
+            <a href="digital-inovations/">Digital Innovations · Kiddo Stories</a>
             <p style="margin-top: 1rem; opacity: 0.7;">© 2025 Igor Ivanov. All rights reserved.</p>
         </footer>
     </div>
