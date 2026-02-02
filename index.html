@@ -3,246 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Ivanov - Front End Engineer</title>
+    <title>Igor Ivanov - Full Stack Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary: #4f46e5;
+            --color-primary-dark: #4338ca;
+            --color-primary-light: #818cf8;
+            --color-accent: #06b6d4;
+            --color-bg: #0f172a;
+            --color-bg-light: #1e293b;
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-surface: #ffffff;
+            --color-surface-alt: #f8fafc;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            --transition: 0.2s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.65;
+            color: var(--color-text);
+            background: var(--color-bg);
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 1.5rem;
         }
 
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: var(--transition);
+        }
+
+        nav .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: white;
+            opacity: 1;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Hero */
         header {
             text-align: center;
+            padding: 8rem 2rem 5rem;
             color: white;
-            padding: 4rem 2rem;
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.85) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        header p {
-            font-size: 1.5rem;
+        header .subtitle {
+            font-size: 1.25rem;
+            font-weight: 500;
             opacity: 0.9;
-            margin-bottom: 2rem;
+            color: var(--color-primary-light);
         }
 
+        header .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 4px solid rgba(255,255,255,0.2);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Main content */
         .main-content {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: -2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: -2rem 0 3rem;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
         }
 
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
         }
 
         .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
         }
 
         .section p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--color-surface-alt);
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(79, 70, 229, 0.15);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .languages {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .languages span {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(79, 70, 229, 0.1));
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3 {
             font-size: 1.1rem;
-            color: #666;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .meta {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
             margin-bottom: 1rem;
         }
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
-        }
-
-        .project-card .company {
-            font-size: 0.9rem;
-            color: #999;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .project-card a {
-            color: #667eea;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
             margin-top: 1rem;
         }
 
-        .skill-tag {
-            background: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+        .project-card {
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: rgba(79, 70, 229, 0.2);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .project-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
             font-size: 0.9rem;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
-        .languages {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
+        .project-card a {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: var(--transition);
         }
 
-        .languages span {
-            background: #e8eaf6;
-            color: #667eea;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .project-card a:hover {
+            color: var(--color-primary-dark);
         }
 
-        .experience-item {
-            margin-bottom: 2rem;
+        /* Digital Innovations CTA */
+        .di-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.06), rgba(6, 182, 212, 0.06));
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border: 1px solid rgba(79, 70, 229, 0.15);
         }
 
-        .experience-item h3 {
-            color: #667eea;
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-item .meta {
-            color: #999;
+        .di-section a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-primary);
+            color: white !important;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
+            transition: var(--transition);
         }
 
-        .experience-item p {
-            margin-bottom: 0.75rem;
+        .di-section a:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
         }
 
+        /* Companies logos */
+        .companies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .company-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem 1rem;
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0,0,0,0.04);
+            text-decoration: none;
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+            min-height: 100px;
+        }
+
+        .company-logo:hover {
+            border-color: rgba(79, 70, 229, 0.2);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .company-logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-logo .name {
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .company-logo img[src=""],
+        .company-logo img:not([src]) {
+            display: none;
+        }
+
+        /* Contact */
         .contact {
             text-align: center;
             padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 10px;
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-lg);
         }
 
         .contact a {
-            color: #667eea;
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            transition: var(--transition);
         }
 
         .contact a:hover {
-            text-decoration: underline;
+            color: var(--color-primary-dark);
         }
 
-        .contact .phone {
-            margin-top: 0.5rem;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
-            color: white;
-            margin-top: 2rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
 
         footer a {
-            color: white;
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
-            margin: 0 1rem;
-            opacity: 0.8;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         footer a:hover {
-            opacity: 1;
-            text-decoration: underline;
+            color: white;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
+            header {
+                padding: 6rem 1rem 4rem;
             }
 
-            header p {
-                font-size: 1.2rem;
+            header .profile-photo {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 1rem;
             }
 
             .main-content {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
 
             .projects {
                 grid-template-columns: 1fr;
             }
+
+            nav .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-inner">
+            <a href="#" style="font-weight: 700;">Igor Ivanov</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#companies">Companies</a>
+                <a href="#experience">Experience</a>
+                <a href="digital-inovations/">Digital Innovations</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
+            <img src="1754999743273.jpeg" alt="Igor Ivanov" class="profile-photo">
             <h1>Igor Ivanov</h1>
-            <p>Front End Engineer</p>
+            <p class="subtitle">Full Stack Engineer</p>
         </header>
 
         <div class="main-content">
-            <section class="section">
+            <section class="section" id="about">
                 <h2>About Me</h2>
                 <p>
                     In my four years of work experience as a front-end developer, I have always tried to improve my work and my skills and get even more experience. I enjoy my work and take responsibility for every project, paying a lot of attention to detail.
                 </p>
             </section>
 
-            <section class="section">
+            <section class="section" id="companies">
+                <h2>Companies I've worked with</h2>
+                <div class="companies">
+                    <a href="https://techvenia.com" target="_blank" rel="noopener" class="company-logo" title="Techvenia">
+                        <img src="https://logo.clearbit.com/techvenia.com" alt="Techvenia" onerror="this.style.display='none'">
+                        <span class="name">Techvenia</span>
+                    </a>
+                    <a href="https://movethechain.com" target="_blank" rel="noopener" class="company-logo" title="Move the Chain">
+                        <img src="https://logo.clearbit.com/movethechain.com" alt="Move the Chain" onerror="this.style.display='none'">
+                        <span class="name">Move the Chain</span>
+                    </a>
+                    <a href="https://mubazar.com" target="_blank" rel="noopener" class="company-logo" title="Mubazar">
+                        <img src="https://logo.clearbit.com/mubazar.com" alt="Mubazar" onerror="this.style.display='none'">
+                        <span class="name">Mubazar</span>
+                    </a>
+                    <a href="https://scivenia.com" target="_blank" rel="noopener" class="company-logo" title="Scivenia">
+                        <img src="https://logo.clearbit.com/scivenia.com" alt="Scivenia" onerror="this.style.display='none'">
+                        <span class="name">Scivenia</span>
+                    </a>
+                    <a href="https://vicre.be" target="_blank" rel="noopener" class="company-logo" title="Vicre">
+                        <img src="https://logo.clearbit.com/vicre.be" alt="Vicre" onerror="this.style.display='none'">
+                        <span class="name">Vicre</span>
+                    </a>
+                    <a href="https://ovintiv.com" target="_blank" rel="noopener" class="company-logo" title="Ovintiv">
+                        <img src="https://logo.clearbit.com/ovintiv.com" alt="Ovintiv" onerror="this.style.display='none'">
+                        <span class="name">Ovintiv</span>
+                    </a>
+                    <a href="https://qsense.io" target="_blank" rel="noopener" class="company-logo" title="qSense">
+                        <img src="https://logo.clearbit.com/qsense.io" alt="qSense" onerror="this.style.display='none'">
+                        <span class="name">qSense</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
                 <h2>Skills</h2>
                 <div class="skills">
                     <span class="skill-tag">React.js</span>
@@ -258,16 +509,17 @@
                     <span class="skill-tag">Emotion</span>
                     <span class="skill-tag">Tailwind</span>
                     <span class="skill-tag">Bootstrap</span>
-                    <span class="skill-tag">HTML/CSS/JavaScript</span>
+                    <span class="skill-tag">HTML/CSS/JS</span>
+                    <span class="skill-tag">MySQL</span>
                 </div>
-                <p style="margin-top: 1.5rem; margin-bottom: 0.5rem;"><strong>Languages:</strong></p>
+                <p style="margin-top: 1.25rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Languages</p>
                 <div class="languages">
                     <span>English</span>
                     <span>German</span>
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="experience">
                 <h2>Work Experience</h2>
 
                 <div class="experience-item">
@@ -276,18 +528,18 @@
                     <div class="projects">
                         <div class="project-card">
                             <h3>Move the Chain</h3>
-                            <p>Worked as part of the Belgrade team, which collaborated with an international team from Argentina. Implemented new features and resolved challenging bugs.</p>
+                            <p>Worked as part of the Belgrade team collaborating with an international team from Argentina. Implemented new features and resolved challenging bugs.</p>
                             <p><strong>Tech:</strong> Next.js, Node.js, Prisma, Tailwind, React-query</p>
                             <a href="https://movethechain.com/" target="_blank" rel="noopener">movethechain.com →</a>
                         </div>
                         <div class="project-card">
                             <h3>CustShow</h3>
-                            <p>Desktop application for Deaf Hospital. Rebuilt the application with a new design and implemented new features. Upgraded all deprecated libraries.</p>
+                            <p>Desktop application for Deaf Hospital. Rebuilt with new design, implemented features, upgraded deprecated libraries.</p>
                             <p><strong>Tech:</strong> Electron, React, Redux, MUI</p>
                         </div>
                         <div class="project-card">
                             <h3>Ovintiv Workflow Logistics</h3>
-                            <p>Financial calculations project, mostly based on tables made with Ag-grid. Implemented all functionality and designs connected with the Ag-grid library.</p>
+                            <p>Financial calculations project with Ag-grid tables. Implemented functionality and designs for the Ag-grid library.</p>
                             <p><strong>Tech:</strong> React, Tailwind, React-hook-form, React-query, Ag-grid</p>
                         </div>
                     </div>
@@ -299,28 +551,21 @@
                     <div class="projects">
                         <div class="project-card">
                             <h3>Mubazar, Scivenia</h3>
-                            <p>Maintained the legacy Mubazar and Scivenia platforms, implemented new designs and features. Rebuilt Mubazar using React, Next.js and GraphQL. Built Scivenia platform from scratch with Next.js and GraphQL.</p>
-                            <p>Collaborated with product owner. Built a drag-and-drop form builder (similar to Google Forms) that supports 10 languages. Used Atomic Design Methodology.</p>
+                            <p>Maintained legacy platforms, implemented new designs and features. Rebuilt Mubazar with React, Next.js, GraphQL. Built Scivenia from scratch.</p>
+                            <p>Built a drag-and-drop form builder (similar to Google Forms) supporting 10 languages. Used Atomic Design Methodology.</p>
                             <p><strong>Tech:</strong> React, Next.js, GraphQL</p>
                             <a href="https://mubazar.com/en" target="_blank" rel="noopener">mubazar.com →</a>
-                            <a href="https://www.scivenia.com/en" target="_blank" rel="noopener" style="margin-left: 1rem;">scivenia.com →</a>
+                            <a href="https://www.scivenia.com/en" target="_blank" rel="noopener">scivenia.com →</a>
                         </div>
                         <div class="project-card">
                             <h3>ABF (Vicre)</h3>
-                            <p>Project management tool for Vicre, an internationally operating Belgian company that accompanies enterprises during business transformations.</p>
-                            <p>Implemented new features and design on the desktop version with Next.js and Redux. Built the mobile app from scratch in React Native.</p>
+                            <p>Project management tool for Vicre. Implemented features on desktop (Next.js, Redux). Built mobile app from scratch in React Native.</p>
                             <p><strong>Tech:</strong> Next.js, Redux, React Native</p>
                             <a href="http://abf.vicre.be/login" target="_blank" rel="noopener">abf.vicre.be →</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="experience-item">
-                    <h3>Internship · Junior Front End Developer</h3>
-                    <p class="meta">Fuelup – education, June 2018 – December 2018</p>
-                    <p>Free learning platform. Technologies used: React, Sass, Redux.</p>
-                    <a href="http://www.fundly.com/fuel-up-education" target="_blank" rel="noopener">fundly.com/fuel-up-education →</a>
-                </div>
             </section>
 
             <section class="section">
@@ -328,20 +573,20 @@
                 <p><strong>Front-end Developer</strong> · Brainster · 2018 – 2019</p>
             </section>
 
-            <section class="section">
+            <section class="section di-section">
                 <h2>Digital Innovations</h2>
                 <p>Cofounder of <strong>Digital Innovations</strong>, a company focused on creating innovative digital products.</p>
                 <p>Our flagship product, <strong>Kiddo Stories</strong>, delivers AI-powered personalized bedtime stories for children via Facebook Messenger — with AI-generated stories, text-to-speech audio, and custom illustrations.</p>
-                <p><a href="digital-inovations/" style="color: #667eea; font-weight: 600; text-decoration: none;">→ Visit Digital Innovations</a></p>
+                <a href="digital-inovations/">Visit Digital Innovations →</a>
             </section>
 
             <section class="section contact">
                 <h2>Get In Touch</h2>
-                <p>Feel free to reach out if you'd like to collaborate or have any questions!</p>
+                <p>Feel free to reach out if you'd like to collaborate or have any questions.</p>
                 <p>
                     <a href="mailto:igor.dev.ivanov@gmail.com">igor.dev.ivanov@gmail.com</a>
                 </p>
-                <p class="phone">
+                <p style="margin-top: 0.5rem;">
                     <a href="tel:+38978472490">+389 78 472 490</a>
                 </p>
             </section>
@@ -349,7 +594,7 @@
 
         <footer>
             <a href="digital-inovations/">Digital Innovations · Kiddo Stories</a>
-            <p style="margin-top: 1rem; opacity: 0.7;">© 2025 Igor Ivanov. All rights reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Igor Ivanov</p>
         </footer>
     </div>
 </body>

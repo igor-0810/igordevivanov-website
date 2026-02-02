@@ -4,152 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - Kiddo Stories | Digital Innovations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary: #4f46e5;
+            --color-primary-dark: #4338ca;
+            --color-accent: #06b6d4;
+            --color-bg: #0f172a;
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-surface: #ffffff;
+            --color-surface-alt: #f8fafc;
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: 0.2s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.65;
+            color: var(--color-text);
+            background: var(--color-bg);
+            min-height: 100vh;
+        }
+
+        .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            background: #f5f5f5;
+            padding: 0 1.5rem 3rem;
         }
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        nav {
+            padding: 1.25rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 1rem;
-            color: #667eea;
+
+        nav a {
+            color: rgba(255,255,255,0.9);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
         }
-        .back-link:hover {
-            text-decoration: underline;
-        }
+
+        nav a:hover { color: white; }
+
         .breadcrumb {
-            margin-bottom: 0.5rem;
+            text-align: center;
+            padding: 1rem 0;
         }
+
         .breadcrumb a {
-            color: #999;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-size: 0.9rem;
         }
-        .breadcrumb a:hover {
-            color: #667eea;
-            text-decoration: underline;
+
+        .breadcrumb a:hover { color: white; }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            padding: 2rem 0 3rem;
         }
-        h1 {
-            color: #333;
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
-            text-align: center;
         }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
+
+        .page-header p {
             font-size: 1.1rem;
+            opacity: 0.9;
         }
+
+        .main-content {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+        }
+
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
         }
+
         .pricing-card {
-            background: #f8f9fa;
-            border-radius: 15px;
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-lg);
             padding: 2rem;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
             border: 2px solid transparent;
+            transition: var(--transition);
         }
+
         .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
+            border-color: rgba(79, 70, 229, 0.2);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
+
         .pricing-card.featured {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #6366f1 100%);
             color: white;
-            border-color: #667eea;
+            border-color: transparent;
         }
-        .pricing-card.featured .price { color: white; }
-        .pricing-card.featured .price-amount { color: white; }
-        .pricing-card.featured h3 { color: white; }
-        .pricing-card.featured p { color: rgba(255, 255, 255, 0.9); }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.4);
+        }
+
         .pricing-card h3 {
-            color: #667eea;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
             margin-bottom: 1rem;
         }
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #667eea;
-            margin: 1rem 0;
-        }
+
+        .pricing-card.featured h3 { color: white; }
+
         .price-amount {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #333;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-text);
+            margin: 0.5rem 0;
         }
+
+        .pricing-card.featured .price-amount { color: white; }
+
         .stories-count {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1rem;
+            color: var(--color-text-muted);
             margin-bottom: 1.5rem;
-            font-weight: 500;
         }
-        .pricing-card.featured .stories-count { color: rgba(255, 255, 255, 0.9); }
+
+        .pricing-card.featured .stories-count { color: rgba(255,255,255,0.9); }
+
         .features {
             list-style: none;
             padding: 0;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             text-align: left;
         }
+
         .features li {
-            padding: 0.75rem 0;
-            color: #666;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 0.5rem 0;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
+
         .features li:last-child { border-bottom: none; }
-        .pricing-card.featured .features li {
-            color: rgba(255, 255, 255, 0.9);
-            border-bottom-color: rgba(255, 255, 255, 0.2);
-        }
-        .features li:before {
+
+        .features li::before {
             content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
+            color: var(--color-primary);
+            font-weight: 700;
             margin-right: 0.5rem;
         }
-        .pricing-card.featured .features li:before { color: white; }
+
+        .pricing-card.featured .features li {
+            color: rgba(255,255,255,0.95);
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        .pricing-card.featured .features li::before { color: white; }
+
         .cta-button {
             display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
+            background: var(--color-primary);
+            color: white !important;
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--radius-md);
             font-weight: 600;
+            text-decoration: none;
             margin-top: 1rem;
-            transition: background 0.3s;
+            transition: var(--transition);
         }
-        .cta-button:hover { background: #5568d3; }
+
+        .cta-button:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+        }
+
         .pricing-card.featured .cta-button {
             background: white;
-            color: #667eea;
+            color: var(--color-primary) !important;
         }
-        .pricing-card.featured .cta-button:hover { background: #f0f0f0; }
+
+        .pricing-card.featured .cta-button:hover {
+            background: #f8fafc;
+        }
+
         .info-section {
-            margin-top: 3rem;
+            margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 2px solid #e0e0e0;
+            border-top: 1px solid rgba(0,0,0,0.08);
         }
-        .info-section h2 { color: #667eea; margin-bottom: 1rem; }
-        .info-section p { color: #666; margin-bottom: 1rem; }
+
+        .info-section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-section p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-section a {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .info-section a:hover { text-decoration: underline; }
+
         @media (max-width: 768px) {
             .pricing-grid { grid-template-columns: 1fr; }
         }
@@ -158,62 +258,72 @@
 <body>
     <div class="container">
         <div class="breadcrumb"><a href="../index.html">← igordevivanov.com</a></div>
-        <a href="index.html" class="back-link">← Home</a> | <a href="terms.html" class="back-link">Terms</a> | <a href="privacy.html" class="back-link">Privacy</a>
-        <h1>Pricing</h1>
-        <p class="subtitle">Choose the perfect plan for your child's storytelling journey</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
 
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Starter</h3>
-                <div class="price"><span class="price-amount">$5.99</span></div>
-                <p class="stories-count">10 Stories</p>
-                <ul class="features">
-                    <li>AI-generated personalized stories</li>
-                    <li>Text-to-speech audio narration</li>
-                    <li>Custom illustrations</li>
-                    <li>Multiple themes available</li>
-                </ul>
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
-
-            <div class="pricing-card featured">
-                <h3>Popular</h3>
-                <div class="price"><span class="price-amount">$9.99</span></div>
-                <p class="stories-count">20 Stories</p>
-                <ul class="features">
-                    <li>AI-generated personalized stories</li>
-                    <li>Text-to-speech audio narration</li>
-                    <li>Custom illustrations</li>
-                    <li>Multiple themes available</li>
-                    <li>Best value per story</li>
-                </ul>
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
-
-            <div class="pricing-card">
-                <h3>Premium</h3>
-                <div class="price"><span class="price-amount">$19.99</span></div>
-                <p class="stories-count">50 Stories</p>
-                <ul class="features">
-                    <li>AI-generated personalized stories</li>
-                    <li>Text-to-speech audio narration</li>
-                    <li>Custom illustrations</li>
-                    <li>Multiple themes available</li>
-                    <li>Maximum savings</li>
-                </ul>
-                <a href="#" class="cta-button">Get Started</a>
-            </div>
+        <div class="page-header">
+            <h1>Pricing</h1>
+            <p>Choose the perfect plan for your child's storytelling journey</p>
         </div>
 
-        <div class="info-section">
-            <h2>How It Works</h2>
-            <p>Kiddo Stories uses a credit-based system. Each story you generate uses one credit from your purchased package. Credits never expire, so you can use them at your own pace.</p>
-            <p>To get started, simply visit our Facebook Messenger bot and begin your storytelling journey!</p>
-        </div>
+        <div class="main-content">
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price-amount">$5.99</div>
+                    <p class="stories-count">10 Stories</p>
+                    <ul class="features">
+                        <li>AI-generated personalized stories</li>
+                        <li>Text-to-speech audio narration</li>
+                        <li>Custom illustrations</li>
+                        <li>Multiple themes available</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
 
-        <div class="info-section">
-            <h2>Payment & Refunds</h2>
-            <p>All payments are processed securely through Paddle. We offer a 14-day money-back guarantee if you're not satisfied with our service. For more details, please see our <a href="terms.html">Terms of Service</a>.</p>
+                <div class="pricing-card featured">
+                    <h3>Popular</h3>
+                    <div class="price-amount">$9.99</div>
+                    <p class="stories-count">20 Stories</p>
+                    <ul class="features">
+                        <li>AI-generated personalized stories</li>
+                        <li>Text-to-speech audio narration</li>
+                        <li>Custom illustrations</li>
+                        <li>Multiple themes available</li>
+                        <li>Best value per story</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price-amount">$19.99</div>
+                    <p class="stories-count">50 Stories</p>
+                    <ul class="features">
+                        <li>AI-generated personalized stories</li>
+                        <li>Text-to-speech audio narration</li>
+                        <li>Custom illustrations</li>
+                        <li>Multiple themes available</li>
+                        <li>Maximum savings</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>How It Works</h2>
+                <p>Kiddo Stories uses a credit-based system. Each story you generate uses one credit from your purchased package. Credits never expire, so you can use them at your own pace.</p>
+                <p>To get started, simply visit our Facebook Messenger bot and begin your storytelling journey!</p>
+            </div>
+
+            <div class="info-section">
+                <h2>Payment & Refunds</h2>
+                <p>All payments are processed securely through Paddle. We offer a full 14-day money-back guarantee (minimum 14 calendar days from purchase) if you're not satisfied with our service. For more details, please see our <a href="terms.html">Terms of Service</a>.</p>
+            </div>
         </div>
     </div>
 </body>
