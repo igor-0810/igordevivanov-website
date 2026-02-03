@@ -394,6 +394,14 @@
             border-top: 1px solid rgba(255,255,255,0.08);
         }
 
+        footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
         footer a {
             color: rgba(255,255,255,0.9);
             text-decoration: none;
@@ -593,8 +601,13 @@
         </div>
 
         <footer>
-            <a href="digital-inovations/">Digital Innovations · Kiddo Stories</a>
-            <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Igor Ivanov</p>
+            <div class="footer-links">
+                <a href="digital-inovations/">Digital Innovations · Kiddo Stories</a>
+                <a href="digital-inovations/terms.html">Terms of Service</a>
+                <a href="digital-inovations/terms.html#refund-policy">Refund Policy</a>
+                <a href="digital-inovations/privacy.html">Privacy Policy</a>
+            </div>
+            <p style="opacity: 0.8;">© 2025 Igor Ivanov</p>
         </footer>
     </div>
 </body>

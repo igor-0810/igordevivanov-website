@@ -85,6 +85,29 @@
         a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .meta { font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover { color: white; }
         @media (max-width: 768px) {
             .main-content { padding: 1.5rem; }
         }
@@ -103,7 +126,7 @@
         <div class="main-content">
             <h1>Privacy Policy</h1>
             <p class="meta"><strong>Last updated:</strong> January 25, 2025</p>
-            <p class="meta"><strong>Service operated by:</strong> Igor Ivanov Digital Services</p>
+            <p class="meta"><strong>Service operated by:</strong> Digital Innovations</p>
 
             <h2>1. Information We Collect</h2>
             <p>We collect information you provide directly to us, including:</p>
@@ -144,9 +167,20 @@
             <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date.</p>
 
             <h2>8. Contact Us</h2>
-            <p><strong>Igor Ivanov Digital Services</strong></p>
+            <p><strong>Digital Innovations</strong></p>
             <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:hello@igordevivanov.com">hello@igordevivanov.com</a> or through Facebook Messenger.</p>
         </div>
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="terms.html#refund-policy">Refund Policy</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:hello@igordevivanov.com">Contact</a>
+            </div>
+            <p>© 2026 Digital Innovations</p>
+        </footer>
     </div>
 </body>
 </html>

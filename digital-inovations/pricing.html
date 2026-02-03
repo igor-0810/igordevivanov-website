@@ -250,6 +250,30 @@
 
         .info-section a:hover { text-decoration: underline; }
 
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        footer a:hover { color: white; }
+
         @media (max-width: 768px) {
             .pricing-grid { grid-template-columns: 1fr; }
         }
@@ -325,6 +349,17 @@
                 <p>All payments are processed securely through Paddle. We offer a full 14-day money-back guarantee (minimum 14 calendar days from purchase) if you're not satisfied with our service. For more details, please see our <a href="terms.html">Terms of Service</a>.</p>
             </div>
         </div>
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="terms.html#refund-policy">Refund Policy</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:hello@igordevivanov.com">Contact</a>
+            </div>
+            <p>© 2026 Digital Innovations</p>
+        </footer>
     </div>
 </body>
 </html>
