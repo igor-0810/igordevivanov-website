@@ -1,614 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Ivanov - Full Stack Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #4f46e5;
-            --color-primary-dark: #4338ca;
-            --color-primary-light: #818cf8;
-            --color-accent: #06b6d4;
-            --color-bg: #0f172a;
-            --color-bg-light: #1e293b;
-            --color-text: #1e293b;
-            --color-text-muted: #64748b;
-            --color-surface: #ffffff;
-            --color-surface-alt: #f8fafc;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 9999px;
-            --transition: 0.2s ease;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igor Ivanov </title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Favicon / browser tab icon -->
+  <link rel="icon" href="profil_pic.png" type="image/png">
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.65;
-            color: var(--color-text);
-            background: var(--color-bg);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 1.5rem;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            transition: var(--transition);
-        }
-
-        nav .nav-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: white;
-            opacity: 1;
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        /* Hero */
-        header {
-            text-align: center;
-            padding: 8rem 2rem 5rem;
-            color: white;
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.85) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        header .subtitle {
-            font-size: 1.25rem;
-            font-weight: 500;
-            opacity: 0.9;
-            color: var(--color-primary-light);
-        }
-
-        header .profile-photo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            display: block;
-            border: 4px solid rgba(255,255,255,0.2);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* Main content */
-        .main-content {
-            background: var(--color-surface);
-            border-radius: var(--radius-xl);
-            padding: 2.5rem;
-            margin: -2rem 0 3rem;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .main-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        }
-
-        .section {
-            margin-bottom: 2.5rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .section p {
-            font-size: 1rem;
-            color: var(--color-text-muted);
-            margin-bottom: 0.75rem;
-        }
-
-        .section p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .skill-tag {
-            background: var(--color-surface-alt);
-            color: var(--color-primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 600;
-            border: 1px solid rgba(79, 70, 229, 0.15);
-            transition: var(--transition);
-        }
-
-        .skill-tag:hover {
-            background: var(--color-primary);
-            color: white;
-            border-color: var(--color-primary);
-        }
-
-        .languages {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .languages span {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(79, 70, 229, 0.1));
-            color: var(--color-primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        /* Experience */
-        .experience-item {
-            margin-bottom: 2rem;
-        }
-
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .experience-item h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-item .meta {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-card {
-            background: var(--color-surface-alt);
-            border-radius: var(--radius-md);
-            padding: 1.25rem;
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            border-color: rgba(79, 70, 229, 0.2);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .project-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card a {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            transition: var(--transition);
-        }
-
-        .project-card a:hover {
-            color: var(--color-primary-dark);
-        }
-
-        /* Digital Innovations CTA */
-        .di-section {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.06), rgba(6, 182, 212, 0.06));
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            border: 1px solid rgba(79, 70, 229, 0.15);
-        }
-
-        .di-section a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--color-primary);
-            color: white !important;
-            padding: 0.75rem 1.25rem;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            transition: var(--transition);
-        }
-
-        .di-section a:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-1px);
-        }
-
-        /* Companies logos */
-        .companies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .company-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.25rem 1rem;
-            background: var(--color-surface-alt);
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(0,0,0,0.04);
-            text-decoration: none;
-            color: var(--color-text-muted);
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: var(--transition);
-            min-height: 100px;
-        }
-
-        .company-logo:hover {
-            border-color: rgba(79, 70, 229, 0.2);
-            color: var(--color-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .company-logo img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
-
-        .company-logo .name {
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .company-logo img[src=""],
-        .company-logo img:not([src]) {
-            display: none;
-        }
-
-        /* Contact */
-        .contact {
-            text-align: center;
-            padding: 2rem;
-            background: var(--color-surface-alt);
-            border-radius: var(--radius-lg);
-        }
-
-        .contact a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .contact a:hover {
-            color: var(--color-primary-dark);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        footer .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        footer a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 6rem 1rem 4rem;
-            }
-
-            header .profile-photo {
-                width: 110px;
-                height: 110px;
-                margin-bottom: 1rem;
-            }
-
-            .main-content {
-                padding: 1.5rem;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            nav .nav-links {
-                display: none;
-            }
-        }
-    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fade-in slide animation */
+    @keyframes fadeInSlide {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInSlide { animation: fadeInSlide 1s forwards; }
+    .animate-fadeInSlide.delay-200 { animation-delay: 0.2s; }
+    .animate-fadeInSlide.delay-400 { animation-delay: 0.4s; }
+    .animate-fadeInSlide.delay-600 { animation-delay: 0.6s; }
+  </style>
 </head>
-<body>
-    <nav>
-        <div class="nav-inner">
-            <a href="#" style="font-weight: 700;">Igor Ivanov</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#companies">Companies</a>
-                <a href="#experience">Experience</a>
-                <a href="digital-inovations/">Digital Innovations</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
 
-    <div class="container">
-        <header>
-            <img src="1754999743273.jpeg" alt="Igor Ivanov" class="profile-photo">
-            <h1>Igor Ivanov</h1>
-            <p class="subtitle">Full Stack Engineer</p>
-        </header>
-
-        <div class="main-content">
-            <section class="section" id="about">
-                <h2>About Me</h2>
-                <p>
-                    In my four years of work experience as a front-end developer, I have always tried to improve my work and my skills and get even more experience. I enjoy my work and take responsibility for every project, paying a lot of attention to detail.
-                </p>
-            </section>
-
-            <section class="section" id="companies">
-                <h2>Companies I've worked with</h2>
-                <div class="companies">
-                    <a href="https://techvenia.com" target="_blank" rel="noopener" class="company-logo" title="Techvenia">
-                        <img src="https://logo.clearbit.com/techvenia.com" alt="Techvenia" onerror="this.style.display='none'">
-                        <span class="name">Techvenia</span>
-                    </a>
-                    <a href="https://movethechain.com" target="_blank" rel="noopener" class="company-logo" title="Move the Chain">
-                        <img src="https://logo.clearbit.com/movethechain.com" alt="Move the Chain" onerror="this.style.display='none'">
-                        <span class="name">Move the Chain</span>
-                    </a>
-                    <a href="https://mubazar.com" target="_blank" rel="noopener" class="company-logo" title="Mubazar">
-                        <img src="https://logo.clearbit.com/mubazar.com" alt="Mubazar" onerror="this.style.display='none'">
-                        <span class="name">Mubazar</span>
-                    </a>
-                    <a href="https://scivenia.com" target="_blank" rel="noopener" class="company-logo" title="Scivenia">
-                        <img src="https://logo.clearbit.com/scivenia.com" alt="Scivenia" onerror="this.style.display='none'">
-                        <span class="name">Scivenia (product)</span>
-                    </a>
-                    <a href="https://vicre.be" target="_blank" rel="noopener" class="company-logo" title="Vicre">
-                        <img src="https://logo.clearbit.com/vicre.be" alt="Vicre" onerror="this.style.display='none'">
-                        <span class="name">Vicre</span>
-                    </a>
-                    <a href="https://ovintiv.com" target="_blank" rel="noopener" class="company-logo" title="Ovintiv">
-                        <img src="https://logo.clearbit.com/ovintiv.com" alt="Ovintiv" onerror="this.style.display='none'">
-                        <span class="name">Ovintiv</span>
-                    </a>
-                    <a href="https://qsense.io" target="_blank" rel="noopener" class="company-logo" title="qSense">
-                        <img src="https://logo.clearbit.com/qsense.io" alt="qSense" onerror="this.style.display='none'">
-                        <span class="name">qSense</span>
-                    </a>
-                </div>
-            </section>
-
-            <section class="section" id="skills">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Electron.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Redux</span>
-                    <span class="skill-tag">GraphQL</span>
-                    <span class="skill-tag">Material UI</span>
-                    <span class="skill-tag">Styled Components</span>
-                    <span class="skill-tag">Emotion</span>
-                    <span class="skill-tag">Tailwind</span>
-                    <span class="skill-tag">Bootstrap</span>
-                    <span class="skill-tag">HTML/CSS/JS</span>
-                    <span class="skill-tag">MySQL</span>
-                </div>
-                <p style="margin-top: 1.25rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Languages</p>
-                <div class="languages">
-                    <span>English</span>
-                    <span>German</span>
-                </div>
-            </section>
-
-            <section class="section" id="experience">
-                <h2>Work Experience</h2>
-
-                <div class="experience-item">
-                    <h3>Front End Developer</h3>
-                    <p class="meta">qSense, Belgrade · 2022 – December 2023</p>
-                    <div class="projects">
-                        <div class="project-card">
-                            <h3>Move the Chain</h3>
-                            <p>Worked as part of the Belgrade team collaborating with an international team from Argentina. Implemented new features and resolved challenging bugs.</p>
-                            <p><strong>Tech:</strong> Next.js, Node.js, Prisma, Tailwind, React-query</p>
-                            <a href="https://movethechain.com/" target="_blank" rel="noopener">movethechain.com →</a>
-                        </div>
-                        <div class="project-card">
-                            <h3>CustShow</h3>
-                            <p>Desktop application for Deaf Hospital. Rebuilt with new design, implemented features, upgraded deprecated libraries.</p>
-                            <p><strong>Tech:</strong> Electron, React, Redux, MUI</p>
-                        </div>
-                        <div class="project-card">
-                            <h3>Ovintiv Workflow Logistics</h3>
-                            <p>Financial calculations project with Ag-grid tables. Implemented functionality and designs for the Ag-grid library.</p>
-                            <p><strong>Tech:</strong> React, Tailwind, React-hook-form, React-query, Ag-grid</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <h3>Front End Developer</h3>
-                    <p class="meta">Techvenia, Antwerpen · 2019 – 2022</p>
-                    <div class="projects">
-                        <div class="project-card">
-                            <h3>Mubazar, Scivenia</h3>
-                            <p>Maintained legacy platforms, implemented new designs and features. Rebuilt Mubazar with React, Next.js, GraphQL. Built Scivenia from scratch.</p>
-                            <p>Built a drag-and-drop form builder (similar to Google Forms) supporting 10 languages. Used Atomic Design Methodology.</p>
-                            <p><strong>Tech:</strong> React, Next.js, GraphQL</p>
-                            <a href="https://mubazar.com/en" target="_blank" rel="noopener">mubazar.com →</a>
-                            <a href="https://www.scivenia.com/en" target="_blank" rel="noopener">scivenia.com →</a>
-                        </div>
-                        <div class="project-card">
-                            <h3>ABF (Vicre)</h3>
-                            <p>Project management tool for Vicre. Implemented features on desktop (Next.js, Redux). Built mobile app from scratch in React Native.</p>
-                            <p><strong>Tech:</strong> Next.js, Redux, React Native</p>
-                            <a href="http://abf.vicre.be/login" target="_blank" rel="noopener">abf.vicre.be →</a>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-            <section class="section">
-                <h2>Education</h2>
-                <p><strong>Front-end Developer</strong> · Brainster · 2018 – 2019</p>
-            </section>
-
-            <section class="section di-section">
-                <h2>Digital Innovations</h2>
-                <p>Cofounder of <strong>Digital Innovations</strong>, a company focused on creating innovative digital products.</p>
-                <p>Our flagship product, <strong>Kiddo Stories</strong>, delivers AI-powered personalized bedtime stories for children via Facebook Messenger — with AI-generated stories, text-to-speech audio, and custom illustrations.</p>
-                <a href="digital-inovations/">Visit Digital Innovations →</a>
-            </section>
-
-            <section class="section contact">
-                <h2>Get In Touch</h2>
-                <p>Feel free to reach out if you'd like to collaborate or have any questions.</p>
-                <p>
-                    <a href="mailto:igor.dev.ivanov@gmail.com">igor.dev.ivanov@gmail.com</a>
-                </p>
-                <p style="margin-top: 0.5rem;">
-                    <a href="tel:+38978472490">+389 78 472 490</a>
-                </p>
-            </section>
-        </div>
-
-        <footer>
-            <div class="footer-links">
-                <a href="digital-inovations/">Digital Innovations · Kiddo Stories</a>
-                <a href="digital-inovations/terms.html">Terms of Service</a>
-                <a href="digital-inovations/terms.html#refund-policy">Refund Policy</a>
-                <a href="digital-inovations/privacy.html">Privacy Policy</a>
-            </div>
-            <p style="opacity: 0.8;">© 2025 Igor Ivanov</p>
-        </footer>
+  <!-- NAVBAR -->
+  <header class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+      <nav>
+        <ul class="flex items-center gap-10 text-gray-400 dark:text-gray-400 font-medium">
+          <li><a href="#about" class="transition-colors duration-300 hover:text-blue-500">About</a></li>
+          <li><a href="#skills" class="transition-colors duration-300 hover:text-blue-500">Skills</a></li>
+          <li><a href="#work" class="transition-colors duration-300 hover:text-blue-500">Work</a></li>
+          <li><a href="#testimonials" class="transition-colors duration-300 hover:text-blue-500">Testimonials</a></li>
+          <li><a href="#contact" class="transition-colors duration-300 hover:text-blue-500">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <!-- Spacer for fixed navbar -->
+  <div class="h-20"></div>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="min-h-screen flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto px-6 py-10 bg-gray-50 dark:bg-gray-900">
+    <!-- LEFT: Text -->
+    <div class="md:w-1/2 flex flex-col justify-center gap-4">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white opacity-0 animate-fadeInSlide">
+        Igor Ivanov
+      </h1>
+      <p class="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 opacity-0 animate-fadeInSlide delay-200">
+        Full Stack Developer
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 mt-4 max-w-md opacity-0 animate-fadeInSlide delay-400">
+        Crafting modern, scalable web and mobile applications with clean design and smooth UX.
+      </p>
+    </div>
+
+    <!-- RIGHT: Image -->
+    <div class="md:w-1/2 mb-8 md:mb-0 flex justify-center">
+      <img src="igor.jpeg" 
+           alt="Hero Image" 
+           class="w-80 h-80 rounded-full shadow-lg opacity-0 animate-fadeInSlide delay-600 object-cover">
+    </div>
+  </section>
+
+<!-- MODERN DIVIDER -->
+<section class="py-12 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-center gap-6 flex-wrap">
+
+    <!-- Line left -->
+    <div class="flex-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+
+    <!-- Tech Icons -->
+    <div class="flex items-center gap-4">
+      <!-- React -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+           alt="React" class="w-10 h-10 animate-bounce-slow">
+      <!-- Next.js -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" 
+           alt="Next.js" class="w-10 h-10 animate-bounce-slow delay-200">
+      <!-- Node.js -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+           alt="Node.js" class="w-10 h-10 animate-bounce-slow delay-400">
+      <!-- TypeScript -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" 
+           alt="TypeScript" class="w-10 h-10 animate-bounce-slow delay-600">
+      <!-- Redux Toolkit -->
+      <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" 
+           alt="Redux Toolkit" class="w-10 h-10 animate-bounce-slow delay-800">
+      <!-- MySQL -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" 
+           alt="MySQL" class="w-10 h-10 animate-bounce-slow delay-1000">
+      <!-- GraphQL -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" 
+           alt="GraphQL" class="w-10 h-10 animate-bounce-slow delay-1200">
+      <!-- CSS -->
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
+           alt="CSS" class="w-10 h-10 animate-bounce-slow delay-1400">
+    </div>
+
+    <!-- Line right -->
+    <div class="flex-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+  </div>
+</section>
+
+<!-- Tailwind animation -->
+<style>
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow { animation: bounceSlow 2s infinite; }
+.animate-bounce-slow.delay-200 { animation-delay: 0.2s; }
+.animate-bounce-slow.delay-400 { animation-delay: 0.4s; }
+.animate-bounce-slow.delay-600 { animation-delay: 0.6s; }
+.animate-bounce-slow.delay-800 { animation-delay: 0.8s; }
+.animate-bounce-slow.delay-1000 { animation-delay: 1s; }
+.animate-bounce-slow.delay-1200 { animation-delay: 1.2s; }
+.animate-bounce-slow.delay-1400 { animation-delay: 1.4s; }
+</style>
+
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="bg-white dark:bg-gray-800 py-20">
+  <div class="max-w-4xl mx-auto px-6 space-y-8">
+    <!-- About Me Text -->
+    <div class="opacity-0 animate-fadeInSlide">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        I am a freelance full-stack developer with over 6 years of experience working in professional teams and on personal projects. I have contributed to two companies and completed multiple freelance projects for clients across different industries. I build fast, clean, and maintainable web applications that scale from small businesses to larger, complex systems.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        My expertise spans both front-end and back-end development, including React, Next.js, Node.js, TypeScript, Redux Toolkit, MySQL, GraphQL, and CSS. I focus on creating seamless, intuitive user experiences while ensuring that the underlying code is robust and easy to maintain.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        I take pride in delivering high-quality projects, whether working solo or collaborating with teams. If you are looking for a reliable full-stack developer to bring your ideas to life, feel free to reach out. I am available to discuss your project and provide guidance on the best technical solutions.
+      </p>
+    </div>
+
+    <!-- Full Stack Explanation -->
+    <div class="opacity-0 animate-fadeInSlide delay-400">
+      <h3 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">What is a Full Stack Developer?</h3>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        A full stack developer is a software professional who has the skills and knowledge to work on both the <strong>front-end</strong> and <strong>back-end</strong> of web applications.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2 space-y-2">
+        <li><strong>Front-end development:</strong> creating the parts of an application that users see and interact with, such as websites, buttons, forms, and animations. Technologies include React, Next.js, CSS, Tailwind.</li>
+        <li><strong>Back-end development:</strong> server side logic, databases, APIs, and core logic that users don’t see. Technologies include Node.js, MySQL, GraphQL, and others.</li>
+      </ul>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        A full stack developer can take a concept from idea to finished product, building everything needed for a web application to function smoothly. This includes designing the user interface, writing server logic, managing databases, and connecting all parts together to create a fast, maintainable, and scalable application.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mt-2">
+        Being a full stack developer means being versatile, able to solve problems across the whole tech stack, and delivering end-to-end solutions for a project.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Tailwind animation -->
+<!-- SKILLS & EXPERIENCE TABS -->
+<section class="py-20 bg-gradient-to-b from-slate-50 to-white">
+
+  <!-- TAB BUTTONS -->
+  <div class="flex justify-center mb-12 border-b border-gray-200">
+    <button data-tab="skills" class="tab-button px-6 py-3 font-medium border-b-2 border-indigo-600 text-indigo-600">
+      Skills
+    </button>
+    <button data-tab="experience" class="tab-button px-6 py-3 font-medium border-b-2 border-transparent text-gray-500 hover:text-indigo-600">
+      Experience
+    </button>
+  </div>
+
+  <!-- SKILLS TAB -->
+  <div id="skills" class="tab-content animate-fadeInSlide">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+      <!-- FRONTEND -->
+      <div class="bg-white rounded-2xl p-8 border border-indigo-100 shadow-sm hover:shadow-xl transition">
+        <div class="h-1 w-full mb-6 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-300"></div>
+        <h3 class="text-xl font-semibold mb-6">Frontend</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">React</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">Next.js</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">React Native</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">Tailwind</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">Material UI</span>
+        </div>
+      </div>
+
+      <!-- BACKEND -->
+      <div class="bg-white rounded-2xl p-8 border border-indigo-100 shadow-sm hover:shadow-xl transition">
+        <div class="h-1 w-full mb-6 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-300"></div>
+        <h3 class="text-xl font-semibold mb-6">Backend</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">Node.js</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">TypeScript</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">GraphQL</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">MySQL</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-50 text-indigo-700 hover:bg-indigo-500 hover:text-white transition">Solidity</span>
+        </div>
+      </div>
+
+      <!-- LLM -->
+      <div class="bg-indigo-50/40 rounded-2xl p-8 border border-indigo-300 shadow-sm hover:shadow-xl transition">
+        <div class="h-1 w-full mb-6 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-400"></div>
+        <h3 class="text-xl font-semibold mb-4">LLM & AI</h3>
+        <p class="text-gray-600 text-sm mb-5">
+          Experience training and evaluating large language models.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-100 text-indigo-800 hover:bg-indigo-600 hover:text-white transition">LLM Training</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-100 text-indigo-800 hover:bg-indigo-600 hover:text-white transition">Prompt Engineering</span>
+          <span class="px-4 py-2 text-sm rounded-full bg-indigo-100 text-indigo-800 hover:bg-indigo-600 hover:text-white transition">Model Evaluation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXPERIENCE TAB -->
+  <div id="experience" class="tab-content hidden animate-fadeInSlide delay-400">
+    <div class="space-y-6 max-w-5xl mx-auto px-6 py-12">
+
+      <!-- qSense -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow flex flex-col md:flex-row items-start gap-6">
+        <div class="w-28 aspect-[4/3] rounded overflow-hidden flex items-center justify-center">
+          <img src="qsenselogo.png" alt="qSense Logo" class="object-contain w-full h-full">
+        </div>
+        <div class="flex-1">
+          <h4 class="text-xl font-semibold text-gray-900 dark:text-white">qSense – Frontend / Fullstack Developer</h4>
+          <p class="text-gray-700 dark:text-gray-300 mt-2">
+            qSense is a Swiss company delivering innovative digital solutions. I worked as a frontend and fullstack developer, contributing to multiple projects including Move the Chain, CustShow, and Ovintiv Workflow.
+          </p>
+        </div>
+      </div>
+
+      <!-- Techvenia -->
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-col md:flex-row items-start gap-6">
+        <div class="w-28 aspect-[4/3] rounded overflow-hidden flex items-center justify-center">
+          <img src="techvenialogo.png" alt="Techvenia Logo" class="object-contain w-full h-full">
+        </div>
+        <div class="flex-1">
+          <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Techvenia – Frontend / Fullstack Developer</h4>
+          <p class="text-gray-700 dark:text-gray-300 mt-2">
+            Techvenia is a Belgian IT company. I maintained and rebuilt platforms like Mubazar and Scivenia, and implemented features for ABF/Vicre desktop and mobile apps.
+          </p>
+        </div>
+      </div>
+
+      <!-- Turing.com -->
+      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-col md:flex-row items-start gap-6">
+        <div class="w-28 aspect-[4/3] rounded overflow-hidden flex items-center justify-center">
+          <img src="turinglogo.png" alt="Turing Logo" class="object-contain w-full h-full">
+        </div>
+        <div class="flex-1">
+          <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Turing.com – LLM Trainer</h4>
+          <p class="text-gray-700 dark:text-gray-300 mt-2">
+            I worked as an LLM Trainer on the Penguin i18 project, developing AI training pipelines and improving language model performance.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- TABS JS -->
+<script>
+const tabs = document.querySelectorAll('.tab-button');
+const contents = document.querySelectorAll('.tab-content');
+
+function activateTab(tab) {
+  const target = tab.dataset.tab;
+
+  // buttons
+  tabs.forEach(t => {
+    t.classList.remove('border-indigo-600', 'text-indigo-600');
+    t.classList.add('border-transparent', 'text-gray-500');
+  });
+  tab.classList.add('border-indigo-600', 'text-indigo-600');
+  tab.classList.remove('border-transparent', 'text-gray-500');
+
+  // contents
+  contents.forEach(c => c.classList.add('hidden'));
+  document.getElementById(target).classList.remove('hidden');
+}
+
+// click handling
+tabs.forEach(tab => tab.addEventListener('click', () => activateTab(tab)));
+
+// initial state: only Skills tab open
+activateTab(tabs[0]);
+</script>
+
+<!-- ANIMATION -->
+<style>
+@keyframes fadeInSlide {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInSlide { animation: fadeInSlide 1s forwards; }
+.animate-fadeInSlide.delay-400 { animation-delay: 0.4s; }
+</style>
+
+
+<!-- WORK / PROJECTS SECTION -->
+<section id="work" class="bg-white dark:bg-gray-900 py-20">
+  <div class="max-w-6xl mx-auto px-6 space-y-12">
+
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Work / Projects</h2>
+      <p class="text-gray-700 dark:text-gray-500 mt-2">Some of the projects I have worked on, with description and link</p>
+    </div>
+
+    <!-- Move the Chain -->
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 hover:shadow-2xl transition">
+      <div class="w-full md:w-1/3 h-64 rounded overflow-hidden flex items-center justify-center">
+        <img src="movethechain.png" alt="Move the Chain Screenshot" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1 md:pl-6">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Move the Chain</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          Move the Chain is a platform focused on sports analytics and blockchain integration. 
+          I worked on implementing new features and resolving challenging bugs, collaborating with an international team.
+        </p>
+        <p class="text-blue-500 mt-3 font-semibold">https://movethechain.com/</p>
+      </div>
+    </div>
+
+    <!-- CustShow -->
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 hover:shadow-2xl transition">
+      <div class="w-full md:w-1/3 h-64 rounded overflow-hidden flex items-center justify-center">
+        <img src="custshow.png" alt="CustShow Screenshot" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1 md:pl-6">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">CustShow</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          CustShow is a desktop application built for a hospital for the deaf. I rebuilt the app with a new design, implemented features, and upgraded all deprecated libraries using Electron, React, Redux, and MUI.
+        </p>
+        <p class="text-blue-500 mt-3 font-semibold">Internal / Private Project</p>
+      </div>
+    </div>
+
+    <!-- Scivenia -->
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 hover:shadow-2xl transition">
+      <div class="w-full md:w-1/3 h-64 rounded overflow-hidden flex items-center justify-center">
+        <img src="scivenia.png" alt="Scivenia Screenshot" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1 md:pl-6">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Scivenia</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          Scivenia is a platform I built from scratch using Next.js and GraphQL. It supports multiple languages and includes a drag-and-drop form builder similar to Google Forms.
+        </p>
+        <p class="text-blue-500 mt-3 font-semibold">https://www.scivenia.com/en</p>
+      </div>
+    </div>
+
+    <!-- Mubazar -->
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center md:items-start gap-6 p-6 hover:shadow-2xl transition">
+      <div class="w-full md:w-1/3 h-64 rounded overflow-hidden flex items-center justify-center">
+        <img src="mubazar.png" alt="Mubazar Screenshot" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1 md:pl-6">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Mubazar</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          Mubazar is a marketplace platform where I maintained legacy systems and implemented new features. I also contributed to rebuilding parts of the platform using React and Next.js to improve performance and scalability.
+        </p>
+        <p class="text-blue-500 mt-3 font-semibold">https://mubazar.com/en</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="bg-gray-100 dark:bg-gray-900 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Testimonials</h2>
+      <p class="text-gray-700 dark:text-gray-400 mt-2">What clients and colleagues say about my work</p>
+    </div>
+
+    <!-- Carousel container -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center transform hover:-translate-y-2 transition">
+        <div class="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mb-4">
+          <span class="text-gray-500">JD</span>
+        </div>
+        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+          "Igor delivered an outstanding solution for our e-commerce platform. His attention to detail and clean code made development seamless and scalable."
+        </p>
+        <h5 class="text-gray-900 dark:text-white font-semibold">Jane Doe</h5>
+        <span class="text-gray-500 dark:text-gray-400 text-sm">Product Manager at ShopEase</span>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center transform hover:-translate-y-2 transition">
+        <div class="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mb-4">
+          <span class="text-gray-500">MK</span>
+        </div>
+        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+          "Working with Igor was a pleasure. His experience with full-stack development and leadership skills helped our startup go live faster than expected."
+        </p>
+        <h5 class="text-gray-900 dark:text-white font-semibold">Mark Klein</h5>
+        <span class="text-gray-500 dark:text-gray-400 text-sm">CTO at FinTechX</span>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center transform hover:-translate-y-2 transition">
+        <div class="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mb-4">
+          <span class="text-gray-500">AL</span>
+        </div>
+        <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+          "Igor's work as an LLM Trainer on our AI project was exceptional. His guidance and model improvements significantly boosted performance."
+        </p>
+        <h5 class="text-gray-900 dark:text-white font-semibold">Alice Lee</h5>
+        <span class="text-gray-500 dark:text-gray-400 text-sm">AI Project Lead at Turing.com</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="bg-gradient-to-r from-blue-500 to-blue-600 dark:bg-gray-900 py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-white">Contact</h2>
+      <p class="text-blue-100 mt-2">Reach out for freelance projects or collaboration</p>
+    </div>
+
+    <!-- Contact Info Horizontal -->
+    <div class="flex justify-center items-center gap-12 mb-12 flex-wrap">
+
+      <!-- Email -->
+      <div class="flex items-center gap-3 cursor-pointer group" onclick="copyToClipboard('emailText', 'Email copied!')">
+        <svg class="w-8 h-8 text-white group-hover:text-gray-200 transition" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0v.01L12 13 20 6.01V6H4z"/>
+        </svg>
+        <span class="text-white group-hover:text-gray-200 font-semibold" id="emailText">igor.dev.ivanov@gmail.com</span>
+      </div>
+
+      <!-- Phone -->
+      <div class="flex items-center gap-3 cursor-pointer group" onclick="copyToClipboard('phoneText', 'Phone copied!')">
+        <!-- Modern phone icon -->
+        <svg class="w-8 h-8 text-white group-hover:text-gray-200 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 10l3 2a11 11 0 005 5l2 3c.2.3.5.5.9.5h2c.6 0 1-.4 1-1V7c0-.4-.2-.7-.5-.9l-3-2a11 11 0 00-5-1.5H6c-.6 0-1 .4-1 1v2c0 .4.2.7.5.9z"/>
+        </svg>
+        <span class="text-white group-hover:text-gray-200 font-semibold" id="phoneText">+389 78 472 490</span>
+      </div>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/igor-ivanov-b680241a7/" target="_blank" class="flex items-center gap-3 group">
+        <svg class="w-8 h-8 text-white group-hover:text-gray-200 transition" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.5-1 1.7-2 3.4-2 3.6 0 4.2 2.4 4.2 5.4V24h-4v-7.4c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.8-2.8 3.8V24h-4V8z"/>
+        </svg>
+        <span class="text-white group-hover:text-gray-200 font-semibold">LinkedIn</span>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/igor-0810" target="_blank" class="flex items-center gap-3 group">
+        <svg class="w-8 h-8 text-white group-hover:text-gray-200 transition" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 .5C5.648.5.5 5.648.5 12c0 5.088 3.292 9.41 7.848 10.937.574.106.784-.25.784-.555 0-.273-.01-1.182-.015-2.144-3.19.694-3.868-1.538-3.868-1.538-.522-1.327-1.274-1.68-1.274-1.68-1.04-.711.078-.696.078-.696 1.15.082 1.754 1.182 1.754 1.182 1.023 1.75 2.682 1.244 3.338.952.104-.741.4-1.244.727-1.53-2.545-.29-5.224-1.273-5.224-5.667 0-1.253.447-2.276 1.177-3.077-.118-.29-.51-1.455.113-3.034 0 0 .957-.306 3.138 1.174a10.893 10.893 0 012.854-.384c.968.004 1.942.13 2.854.384 2.18-1.48 3.136-1.174 3.136-1.174.625 1.579.233 2.744.115 3.034.733.801 1.177 1.824 1.177 3.077 0 4.404-2.684 5.373-5.238 5.656.41.354.775 1.05.775 2.116 0 1.53-.014 2.763-.014 3.138 0 .31.206.667.788.554C20.71 21.406 24 17.086 24 12c0-6.352-5.148-11.5-12-11.5z"/>
+        </svg>
+        <span class="text-white group-hover:text-gray-200 font-semibold">GitHub</span>
+      </a>
+    </div>
+
+    <!-- Message Input with mailto -->
+    <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-4">
+      <input type="text" id="messageInput" placeholder="Your Message" class="flex-1 p-4 rounded border border-white bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 transition">
+      <a id="sendMessageBtn" href="mailto:igor.dev.ivanov@gmail.com" target="_blank" class="bg-white text-blue-600 font-semibold py-4 px-8 rounded hover:bg-blue-100 transition">Send Message</a>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded opacity-0 pointer-events-none transition-opacity duration-300">Copied!</div>
+</section>
+
+<script>
+  // Copy with toast
+  function copyToClipboard(elementId, message) {
+    const text = document.getElementById(elementId).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(message);
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 1500);
+  }
+
+  // Update mailto link with message body
+  const messageInput = document.getElementById('messageInput');
+  const sendBtn = document.getElementById('sendMessageBtn');
+
+  messageInput.addEventListener('input', () => {
+    const message = encodeURIComponent(messageInput.value);
+    sendBtn.href = `mailto:igor.dev.ivanov@gmail.com?subject=Message from website&body=${message}`;
+  });
+</script>
+
+
 </body>
 </html>
